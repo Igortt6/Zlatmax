@@ -23,6 +23,10 @@ $fontSize: rem(18); // де 14(px) - розмір шрифту за замовч
 
 // Основні кольори
 $mainColor: #000; // Колір шрифту за замовчуванням
+$mainDarkColor: #141414;
+$mainWhite: #FFFFFF;
+$mainOrange: #E8AA31;
+
 
 // Палітра кольорів
 // @import "base/colors-palette";
@@ -34,7 +38,7 @@ $minWidth: 320;
 // Ширина полотна (макету)
 $maxWidth: 1920;
 // Ширина обмежуючого контейнера (0 = немає обмеження)
-$maxWidthContainer: 1170;
+$maxWidthContainer: 1590;
 // Загальний відступ у контейнера
 // (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
 $containerPadding: 30;

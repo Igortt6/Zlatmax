@@ -16,16 +16,20 @@
 	}
 }
 
+._icon-cart:before {
+	content: "\e902";
+}
+
+._icon-user:before {
+	content: "\e90c";
+}
+
 ._icon-arrow-down:before {
 	content: "\e900";
 }
 
 ._icon-arrow-dropdown:before {
 	content: "\e901";
-}
-
-._icon-basket:before {
-	content: "\e902";
 }
 
 ._icon-compare:before {

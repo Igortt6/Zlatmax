@@ -3,24 +3,30 @@
 	margin: 0px;
 	border: 0px;
 }
+
 *,
 *:before,
 *:after {
 	box-sizing: border-box;
 }
+
 :focus,
 :active {
 	// outline: none;
 }
+
 a:focus,
 a:active {
 	// outline: none;
 }
+
 html,
 body {
+	font-size: 0.8rem;
 	height: 100%;
 	min-width: $minWidth + px;
 }
+
 body {
 	color: $mainColor;
 	line-height: 1;
@@ -33,6 +39,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
 input,
 button,
 textarea {
@@ -40,21 +47,26 @@ textarea {
 	font-size: inherit;
 	line-height: inherit;
 }
+
 button {
 	cursor: pointer;
 	color: inherit;
 	background-color: transparent;
 }
+
 a {
 	color: inherit;
 	text-decoration: none;
 }
+
 ul li {
 	list-style: none;
 }
+
 img {
 	vertical-align: top;
 }
+
 h1,
 h2,
 h3,

@@ -3,7 +3,7 @@
 @import "base/forms/forms";
 
 // Стилі попапів
-// @import "base/popup";
+@import "base/popup";
 
 // Стилі спойлерів
 // @import "base/spollers";
@@ -40,6 +40,7 @@
 // Сніппет (HTML): ibga (a з картинкою та класами)
 [class*="-ibg"] {
 	position: relative;
+
 	img {
 		position: absolute;
 		width: 100%;
@@ -49,6 +50,7 @@
 		object-fit: cover;
 	}
 }
+
 [class*="-ibg_contain"] {
 	img {
 		object-fit: contain;
@@ -63,8 +65,10 @@
 %listCounter {
 	list-style-type: none;
 	counter-reset: item;
+
 	li {
 		position: relative;
+
 		&:before {
 			counter-increment: item;
 			content: counter(item);
@@ -74,12 +78,14 @@
 		}
 	}
 }
+
 // Адаптивне відео
 %responsiveVideo {
 	position: relative;
 	overflow: hidden;
 	height: 0;
 	padding-bottom: 56.25%;
+
 	video,
 	iframe,
 	object,
@@ -91,8 +97,10 @@
 		height: 100%;
 	}
 }
+
 // Відео як фон
 %videoBackground {
+
 	video,
 	iframe,
 	object,
@@ -109,28 +117,34 @@
 		background-size: cover;
 	}
 }
+
 // Сірий фільтр
 %grayfilter {
 	transition: all 0.3s ease 0s;
 	filter: grayscale(1);
+
 	@media (any-hover: hover) {
 		&:hover {
 			filter: grayscale(0);
 		}
 	}
 }
+
 // Скасувати виділення
 %noselect {
 	user-select: none;
 }
+
 // Дзеркальне відображення
 %mirror {
 	transform: scale(-1, 1);
 }
+
 // Плавний скролл
 %smoothscroll {
 	-webkit-overflow-scrolling: touch;
 }
+
 // Сховати скролл
 %hidescroll {
 	&::-webkit-scrollbar {
