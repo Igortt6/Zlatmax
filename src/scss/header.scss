@@ -15,7 +15,10 @@
 	}
 
 	// .header__catalog
-	&__catalog {}
+	&__catalog {
+		background-color: $mainDarkColor;
+		color: $mainWhite;
+	}
 }
 
 //========================================================================================================================================================
@@ -278,6 +281,80 @@
 }
 
 //========================================================================================================================================================
+
+.catalog-header {
+
+	// .catalog-header__container
+	&__container {}
+
+	// .catalog-header__menu
+	&__menu {}
+}
+
+.menu-catalog {
+
+	// .menu-catalog__list
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		gap: rem(15);
+		font-size: rem(18);
+		line-height: math.div(22, 18);
+
+	}
+
+	// .menu-catalog__item
+	&__item {}
+
+	// .menu-catalog__link
+	&__link {
+		display: flex;
+		min-height: rem(70);
+		justify-content: center;
+		align-items: center;
+		padding: 0 rem(10);
+		position: relative;
+
+		&::after {
+			content: '';
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+			bottom: 0;
+			left: rem(10);
+			height: 2px;
+			width: calc(100% - rem(20));
+			background-color: $mainOrange;
+		}
+	}
+
+	// .menu-catalog__sub-menu
+	&__sub-menu {}
+}
+
+.sub-menu-catalog {
+
+	// .sub-menu-catalog__block
+	&__block {}
+
+	// .sub-menu-catalog__column
+	&__column {}
+
+	// .sub-menu-catalog__category
+	&__category {}
+
+	// .sub-menu-catalog__list
+	&__list {}
+
+	// .sub-menu-catalog__item
+	&__item {}
+
+	// .sub-menu-catalog__link
+	&__link {}
+
+	// .sub-menu-catalog__all
+	&__all {}
+}
 
 
 //========================================================================================================================================================
