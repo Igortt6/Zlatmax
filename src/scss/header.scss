@@ -49,6 +49,14 @@
 		&::before {
 			font-size: rem(28);
 		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				span {
+					text-decoration: underline;
+				}
+			}
+		}
 	}
 }
 
@@ -72,7 +80,13 @@
 	&__item {}
 
 	// .menu__link
-	&__link {}
+	&__link {
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
 
 	// .menu__icon
 	&__icon {}
@@ -94,6 +108,8 @@
 		@extend %ic;
 		@extend ._icon-logo;
 		font-size: rem(42);
+
+
 	}
 
 	// .body-header__search
@@ -157,6 +173,15 @@
 	&__location {
 		display: inline-flex;
 		gap: rem(10);
+
+		@media (any-hover: hover) {
+			&:hover {
+				span {
+					text-decoration: underline;
+
+				}
+			}
+		}
 	}
 
 	// .actions-header__phones
@@ -184,6 +209,7 @@
 	&__item {
 		display: flex;
 		position: relative;
+
 	}
 
 	// .phones-header__phone
@@ -192,6 +218,11 @@
 		font-size: rem(18);
 		padding-right: rem(10);
 
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 
 	}
 
@@ -216,6 +247,7 @@
 		border-radius: 3px;
 		padding: rem(10);
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		z-index: 5;
 
 		li {
 			&:not(:last-child) {
@@ -231,6 +263,13 @@
 		font-weight: 700;
 		line-height: math.div(22, 18);
 		color: $mainOrange;
+
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+
+			}
+		}
 	}
 }
 
@@ -277,12 +316,19 @@
 	&__link {
 		margin-top: rem(5);
 		color: $mainOrange;
+
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 }
 
 //========================================================================================================================================================
 
 .catalog-header {
+	position: relative;
 
 	// .catalog-header__container
 	&__container {}
@@ -314,6 +360,7 @@
 		align-items: center;
 		padding: 0 rem(10);
 		position: relative;
+		transition: color 0.3s ease 0s;
 
 		&::after {
 			content: '';
@@ -325,6 +372,19 @@
 			height: 2px;
 			width: calc(100% - rem(20));
 			background-color: $mainOrange;
+			transition: all 0.3s ease 0s;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $mainOrange;
+
+				&::after {
+					opacity: 1;
+					visibility: visible;
+
+				}
+			}
 		}
 	}
 
@@ -333,29 +393,84 @@
 }
 
 .sub-menu-catalog {
+	width: 100%;
+	top: 100%;
+	left: 0;
+	background-color: $mainDarkColor;
+	color: $mainWhite;
 
 	// .sub-menu-catalog__block
-	&__block {}
+	&__block {
+		display: none;
+
+		&._sub-menu-open {
+			display: flex;
+		}
+	}
 
 	// .sub-menu-catalog__column
-	&__column {}
+	&__column {
+		flex: 1 1 auto;
+		font-size: rem(16);
+		line-height: math.div(20, 16);
+		display: flex;
+		flex-direction: column;
+	}
+
+
 
 	// .sub-menu-catalog__category
-	&__category {}
+	&__category {
+		font-weight: 700;
+		padding: rem(30) 0;
+		align-self: start;
+
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+	}
 
 	// .sub-menu-catalog__list
-	&__list {}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+		gap: 20px;
+		padding: rem(30) rem(0);
+		border-top: 1px solid rgba(255, 255, 255, 0.3);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+
+	}
 
 	// .sub-menu-catalog__item
-	&__item {}
+	&__item {
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
 
 	// .sub-menu-catalog__link
 	&__link {}
 
 	// .sub-menu-catalog__all
-	&__all {}
-}
+	&__all {
+		align-self: flex-start;
+		color: $mainOrange;
+		padding: rem(30) rem(0);
 
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
 
 //========================================================================================================================================================
 
