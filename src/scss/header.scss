@@ -31,6 +31,10 @@
 		min-height: 50px;
 		align-items: center;
 		gap: rem(20);
+
+		@media (max-width:$mobileSmall) {
+			gap: rem(30);
+		}
 	}
 
 	// .top-header__menu
@@ -45,6 +49,8 @@
 		font-size: rem(18);
 		font-weight: 600;
 		line-height: math.div(22, 18);
+		position: relative;
+		z-index: 5;
 
 		&::before {
 			font-size: rem(28);
@@ -57,39 +63,120 @@
 				}
 			}
 		}
+
+		@media (max-width:$tablet) {
+			span {
+				display: none;
+			}
+
+			&::before {
+				font-size: rem(36);
+			}
+		}
 	}
 }
 
-.menu {
+.menu-top-header {
 	font-size: rem(16);
 	font-weight: 500;
 	line-height: math.div(20, 16);
 
-	// .menu__body
-	&__body {}
-
-	// .menu__list
+	// .menu-top-header__list
 	&__list {
 		display: flex;
 		flex-wrap: wrap;
 		row-gap: 5px;
 		@include adaptiveValue("column-gap", 60, 20);
+
+		@media (max-width:$tablet) {
+			flex: 1 0 auto;
+			@include adaptiveValue("font-size", 25, 18);
+
+			flex-direction: column;
+			gap: rem(20);
+			padding: rem(100) rem(20) rem(30) rem(20);
+		}
+
+
 	}
 
-	// .menu__item
-	&__item {}
-
-	// .menu__link
+	// .menu-top-header__link
 	&__link {
 		@media (any-hover: hover) {
 			&:hover {
 				text-decoration: underline;
 			}
 		}
+
+		&_catalog {
+			@media (min-width:$tablet) {
+				display: none;
+			}
+
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+
+			&::before {
+				transform: rotate(-90deg);
+			}
+
+		}
 	}
 
-	// .menu__icon
-	&__icon {}
+	@media (max-width:$tablet) {
+		display: none;
+	}
+
+}
+
+
+.menu {
+
+
+	// .menu__body
+	&__body {
+		display: flex;
+		flex-direction: column;
+
+		@media (max-width:$tablet) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: -100%;
+			overflow: auto;
+			background-color: $mainDarkColor;
+			transition: left 0.3s ease 0s;
+			z-index: 4;
+		}
+
+		&::before {
+			content: '';
+			position: fixed;
+			width: 100%;
+			height: rem(70);
+			top: 0;
+			left: -100%;
+			background-color: $mainDarkColor;
+		}
+
+		.menu-open & {
+			left: 0;
+
+			&::before {
+				content: '';
+				left: 0;
+			}
+
+		}
+	}
+
+	@media (max-width:$tablet) {
+		flex: 1 1 auto;
+		display: flex;
+		justify-content: flex-end;
+	}
 }
 
 //========================================================================================================================================================
@@ -101,6 +188,7 @@
 		display: flex;
 		min-height: rem(70);
 		align-items: center;
+		gap: rem(10)
 	}
 
 	// .body-header__logo
@@ -115,17 +203,20 @@
 	// .body-header__search
 	&__search {
 		flex: 1 1 auto;
-		padding-right: rem(15);
-		@include adaptiveValue("padding-left", 158, 20);
+		@include adaptiveValue("padding-left", 158, 10, 0, 1650, 900);
 	}
 }
 
 .search-header {
-	max-width: rem(377);
 	border: 1px solid rgba(4, 4, 4, 0.5);
 	background-color: rgba(7, 7, 7, 0.03);
 	border-radius: 3px;
 	position: relative;
+
+	@media (min-width:$tablet) {
+		max-width: rem(377);
+
+	}
 
 	// .search-header__button
 	&__button {
@@ -159,6 +250,10 @@
 
 		}
 	}
+
+	@media (max-width:$tablet) {
+		background-color: #ECF1F2
+	}
 }
 
 //========================================================================================================================================================
@@ -167,7 +262,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: end;
-	@include adaptiveValue("gap", 50, 10);
+	gap: rem(15);
+	@include adaptiveValue("gap", 50, 10, 1, 1650, 1000);
+
 
 	// .actions-header__location
 	&__location {
@@ -182,6 +279,10 @@
 				}
 			}
 		}
+
+		@media (max-width:$tablet) {
+			display: none;
+		}
 	}
 
 	// .actions-header__phones
@@ -194,6 +295,8 @@
 	// .actions-header__favorite
 	&__favorite {
 		font-size: rem(26);
+		position: relative;
+		z-index: 5;
 	}
 
 	// .actions-header__cart
@@ -215,8 +318,16 @@
 	// .phones-header__phone
 	&__phone {
 		font-weight: 600;
-		font-size: rem(18);
 		padding-right: rem(10);
+		line-height: math.div(22, 18);
+		position: relative;
+		z-index: 5;
+
+		&::before {
+			@extend %ic;
+			@extend ._icon-footer-phone;
+			display: none;
+		}
 
 		@media (any-hover: hover) {
 			&:hover {
@@ -224,6 +335,20 @@
 			}
 		}
 
+		@media (max-width:$tablet) {
+			font-size: rem(26);
+
+		}
+
+		@media (max-width:$mobileSmall) {
+			span {
+				display: none;
+			}
+
+			&::before {
+				display: block;
+			}
+		}
 	}
 
 	// .phones-header__arrow
@@ -234,6 +359,10 @@
 
 		&._spoller-active {
 			transform: rotateX(180deg);
+		}
+
+		@media (max-width:$tablet) {
+			display: none;
 		}
 	}
 
@@ -270,6 +399,10 @@
 
 			}
 		}
+
+		@media (max-width:$tablet) {
+			display: none;
+		}
 	}
 }
 
@@ -280,10 +413,10 @@
 	// .cart-header__icon
 	&__icon {
 		display: flex;
-
 		font-size: rem(35);
-		color: $mainColor;
 		position: relative;
+		z-index: 5;
+
 
 		span {
 			color: $mainWhite;
@@ -307,6 +440,9 @@
 		font-size: rem(16);
 		line-height: math.div(20, 16);
 
+		@media (max-width:1200px) {
+			display: none;
+		}
 	}
 
 	// .cart-header__summ
@@ -331,13 +467,30 @@
 	position: relative;
 
 	// .catalog-header__container
-	&__container {}
+	&__container {
+		@media (max-width:$tablet) {
+			padding: rem(20);
+		}
+	}
 
 	// .catalog-header__menu
 	&__menu {}
 }
 
 .menu-catalog {
+	@media (max-width:$tablet) {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: -100%;
+		overflow: auto;
+		background-color: $mainDarkColor;
+		transition: left 0.3s ease 0s;
+		z-index: 5;
+		padding: rem(25) rem(20) rem(30) rem(20);
+
+	}
 
 	// .menu-catalog__list
 	&__list {
@@ -346,19 +499,23 @@
 		gap: rem(15);
 		font-size: rem(18);
 		line-height: math.div(22, 18);
+		padding: rem(25) rem(20) rem(30) rem(20);
+
+
+		@media (max-width:$tablet) {
+			padding: 0;
+			flex-direction: column;
+			row-gap: rem(20);
+		}
 
 	}
 
-	// .menu-catalog__item
-	&__item {}
 
 	// .menu-catalog__link
 	&__link {
 		display: flex;
-		min-height: rem(70);
 		justify-content: center;
 		align-items: center;
-		padding: 0 rem(10);
 		position: relative;
 		transition: color 0.3s ease 0s;
 
@@ -382,14 +539,41 @@
 				&::after {
 					opacity: 1;
 					visibility: visible;
-
 				}
 			}
 		}
+
+		@media (max-width:$tablet) {
+			min-height: 0;
+			@include adaptiveValue("font-size", 25, 18);
+
+		}
 	}
 
-	// .menu-catalog__sub-menu
-	&__sub-menu {}
+	.catalog-open & {
+		left: 0;
+	}
+
+	// .menu-catalog__back
+	&__back {
+		display: inline-flex;
+		align-items: center;
+		justify-content: flex-end;
+
+		&:not(:last-child) {
+			margin-bottom: rem(55);
+		}
+
+		@media (min-width:$tablet) {
+			display: none;
+		}
+
+		&::before {
+			margin: rem(0) rem(12) rem(0) rem(0);
+			transform: translate(90deg);
+		}
+	}
+
 }
 
 .sub-menu-catalog {
@@ -399,18 +583,42 @@
 	background-color: $mainDarkColor;
 	color: $mainWhite;
 
+	// .sub-menu-catalog__back
+	&__back {
+		@media (min-width:$tablet) {
+			display: none;
+		}
+	}
+
+
+	@media (max-width:$tablet) {
+		display: none;
+	}
+
+	// .sub-menu-catalog__container
+	&__container {
+		padding: 0;
+	}
+
 	// .sub-menu-catalog__block
 	&__block {
 		display: none;
+		justify-content: start;
+
+		@for $var from 1 to 6 {
+			&_#{$var} {
+				grid-template-columns: repeat($var, auto);
+			}
+		}
 
 		&._sub-menu-open {
-			display: flex;
+			display: grid;
 		}
 	}
 
 	// .sub-menu-catalog__column
 	&__column {
-		flex: 1 1 auto;
+		flex: 0 1 rem(320);
 		font-size: rem(16);
 		line-height: math.div(20, 16);
 		display: flex;
@@ -418,12 +626,16 @@
 	}
 
 
+	// .sub-menu-catalog__link-category
+	&__link-category {
+		font-weight: 700;
+		padding: rem(30) rem(10);
+		align-self: start;
+		padding-right: rem(10);
+	}
 
 	// .sub-menu-catalog__category
 	&__category {
-		font-weight: 700;
-		padding: rem(30) 0;
-		align-self: start;
 
 		@media (any-hover: hover) {
 			&:hover {
@@ -439,7 +651,7 @@
 		flex-direction: column;
 		flex: 1 1 auto;
 		gap: 20px;
-		padding: rem(30) rem(0);
+		padding: rem(30) rem(10);
 		border-top: 1px solid rgba(255, 255, 255, 0.3);
 		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 
@@ -458,11 +670,15 @@
 	// .sub-menu-catalog__link
 	&__link {}
 
-	// .sub-menu-catalog__all
-	&__all {
+	// .sub-menu-catalog__footer
+	&__footer {
 		align-self: flex-start;
 		color: $mainOrange;
-		padding: rem(30) rem(0);
+		padding: rem(30) rem(10);
+	}
+
+	// .sub-menu-catalog__all
+	&__all {
 
 		@media (any-hover: hover) {
 			&:hover {
@@ -480,12 +696,12 @@
 	display: none;
 
 
-	@media (max-width: $mobile) {
+	@media (max-width: $tablet) {
 		display: block;
 		position: relative;
-		flex: 0 0 rem(30);
+		width: rem(30);
 		height: rem(18);
-		z-index: 5;
+		z-index: 10;
 
 		@media (any-hover: none) {
 			cursor: default;
