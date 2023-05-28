@@ -2,13 +2,21 @@
 // Сніппет (HTML): btn
 
 .button {
-	display: inline-flex;
-	padding: 0px 0px;
+	display: inline-block;
+	padding: rem(8) rem(52);
+	background: $mainOrange;
+	font-size: rem(20);
+	line-height: math.div(32, 20);
+	box-shadow: 0px 4px 20px rgba(232, 170, 49, 0.43);
+	border-radius: 3px;
+	text-align: center;
+	transition: box-shadow 0.3s ease 0s;
+
 	@media (any-hover: hover) {
 		&:hover {
+			box-shadow: 0px 4px 20px rgba(232, 171, 49, 0.868);
+
 		}
 	}
-	&._fw {
-		width: 100%;
-	}
+
 }

@@ -263,7 +263,7 @@
 	align-items: center;
 	justify-content: end;
 	gap: rem(15);
-	@include adaptiveValue("gap", 50, 10, 1, 1650, 1000);
+	@include adaptiveValue("gap", 50, 10, 0, 1650, 1000);
 
 
 	// .actions-header__location
@@ -437,6 +437,8 @@
 
 	// .cart-header__body
 	&__body {
+		display: flex;
+		flex-direction: column;
 		font-size: rem(16);
 		line-height: math.div(20, 16);
 
@@ -604,6 +606,8 @@
 	&__block {
 		display: none;
 		justify-content: start;
+		justify-content: space-evenly;
+
 
 		@for $var from 1 to 6 {
 			&_#{$var} {
@@ -654,8 +658,6 @@
 		padding: rem(30) rem(10);
 		border-top: 1px solid rgba(255, 255, 255, 0.3);
 		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-
-
 	}
 
 	// .sub-menu-catalog__item

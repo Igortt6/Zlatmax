@@ -257,7 +257,7 @@ export function formQuantity() {
 }
 /* Модуль зіркового рейтингу */
 export function formRating() {
-	const ratings = document.querySelectorAll('.rating');
+	const ratings = document.querySelectorAll('.product-card__rating');
 	if (ratings.length > 0) {
 		initRatings();
 	}

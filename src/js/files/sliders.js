@@ -7,7 +7,7 @@
 // Підключаємо слайдер Swiper з node_modules
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
 // Приклад: { Navigation, Autoplay }
-import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation, Pagination, Autoplay, Parallax } from 'swiper';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -27,41 +27,42 @@ import "../../scss/base/swiper.scss";
 function initSliders() {
 	// Список слайдерів
 	// Перевіряємо, чи є слайдер на сторінці
-	if (document.querySelector('.swiper')) { // Вказуємо склас потрібного слайдера
+	if (document.querySelector('.main-block__slider')) { // Вказуємо склас потрібного слайдера
 		// Створюємо слайдер
-		new Swiper('.swiper', { // Вказуємо склас потрібного слайдера
+		new Swiper('.main-block__slider', { // Вказуємо склас потрібного слайдера
 			// Підключаємо модулі слайдера
 			// для конкретного випадку
-			modules: [Navigation],
+			modules: [Navigation, Pagination, Autoplay, Parallax],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
-			spaceBetween: 0,
-			autoHeight: true,
+			spaceBetween: 50,
+			// autoHeight: true,
 			speed: 800,
+			parallax: true,
 
 			//touchRatio: 0,
 			//simulateTouch: false,
-			//loop: true,
+			loop: true,
 			//preloadImages: false,
 			//lazy: true,
 
-			/*
+
 			// Ефекти
 			effect: 'fade',
 			autoplay: {
 				delay: 3000,
 				disableOnInteraction: false,
 			},
-			*/
+
 
 			// Пагінація
-			/*
+
 			pagination: {
-				el: '.swiper-pagination',
+				el: '.controll-main-block__dotts',
 				clickable: true,
 			},
-			*/
+
 
 			// Скроллбар
 			/*
@@ -70,12 +71,6 @@ function initSliders() {
 				draggable: true,
 			},
 			*/
-
-			// Кнопки "вліво/вправо"
-			navigation: {
-				prevEl: '.swiper-button-prev',
-				nextEl: '.swiper-button-next',
-			},
 			/*
 			// Брейкпоінти
 			breakpoints: {
@@ -100,7 +95,14 @@ function initSliders() {
 			*/
 			// Події
 			on: {
-
+				init: function (swiper) {
+					const allSlides = document.querySelector('.fraction-controll__all');
+					allSlides.innerHTML = swiper.slides.length;
+				},
+				slideChange: function (swiper) {
+					const currentSlide = document.querySelector('.fraction-controll__current')
+					currentSlide.innerHTML = swiper.activeIndex + 1;
+				}
 			}
 		});
 	}
@@ -133,10 +135,15 @@ function initSlidersScroll() {
 		}
 	}
 }
+function sliderActiveslideFix() {
+	const activeslide = document.querySelector('.fraction-controll__current');
+	activeslide.innerHTML = 1;
+}
 
 window.addEventListener("load", function (e) {
 	// Запуск ініціалізації слайдерів
 	initSliders();
+	sliderActiveslideFix();
 	// Запуск ініціалізації скролла на базі слайдера (за класом swiper_scroll)
 	//initSlidersScroll();
 });
