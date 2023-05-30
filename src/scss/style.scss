@@ -178,6 +178,8 @@ body {
 @import "header";
 @import "footer";
 @import "components/product-card";
+@import "components/new-products";
+
 // Підключення стилів окремих сторінок
 @import "home";
 //========================================================================================================================================================
@@ -194,6 +196,33 @@ body {
 	&__large-menu {
 		color: $mainDarkColor
 	}
+
+	// .page__top-sales
+	&__top-sales {
+		color: $mainDarkColor
+	}
+
+	// .page__new-products
+	&__new-products {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 120, 30);
+		}
+	}
+
+	// .page__articles
+	&__articles {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 120, 30);
+		}
+	}
+
+	// .page__info-products
+	&__info-products {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 120, 30);
+		}
+	}
 }
+
 
 //========================================================================================================================================================

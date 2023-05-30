@@ -10,7 +10,13 @@
         align-items: center;
         @include adaptiveValue("padding-top", 60, 20);
         @include adaptiveValue("padding-bottom", 60, 20);
+        position: relative;
 
+        @media (max-width:$mobileSmall) {
+            flex-direction: column;
+            align-items: flex-start;
+
+        }
     }
 
     // .product-slider__title
@@ -27,30 +33,93 @@
         line-height: math.div(46, 18);
         font-weight: 600;
         color: rgba(20, 20, 20, 0.58);
+        gap: rem(15);
+        display: flex;
+
+        &::after {
+            z-index: -1;
+            content: '\e901';
+            @extend %ic;
+            transform: rotate(-90deg) translateY(20%);
+            font-size: rem(10);
+            color: $mainOrange;
+        }
+
+        &:hover {
+            color: rgba(20, 20, 20, 0.8);
+
+        }
     }
 
     // .product-slider__slider
-    &__slider {}
+    &__slider {
+        padding: rem(15);
+        margin: 0 rem(-15);
+    }
 
     // .product-slider__wrapper
-    &__wrapper {}
+    &__wrapper {
+        &:not(:last-child) {
+            margin-bottom: rem(60);
+        }
+    }
 
     // .product-slider__slide
-    &__slide {}
+    &__slide {
+
+        // display: grid;
+        // grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+    }
+
+    // .product-slider__slider-dotts
+    &__slider-dotts {}
+
 }
 
 
 .product-card {
-    display: block;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background-color: $mainWhite;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    height: 100%;
 
-    // .product-card__image
-    &__image {}
+    &:hover {
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6);
+
+    }
+
+    &__image {
+        @include adaptiveValue("padding-top", 20, 10);
+        @include adaptiveValue("padding-bottom", 20, 10);
+        @include adaptiveValue("padding-left", 50, 10);
+        @include adaptiveValue("padding-right", 50, 10);
+
+    }
+
+    // .product-card__image-ibg
+    &__image-ibg {
+        display: block;
+        // padding-bottom: percent(295, 375);
+        padding-bottom: percent(240, 270);
+    }
 
     // .product-card__body
-    &__body {}
+    &__body {
+        padding: rem(20);
+        display: flex;
+        flex-direction: column;
+    }
 
     // .product-card__title
-    &__title {}
+    &__title {
+        font-size: rem(20);
+        line-height: math.div(34, 20);
+        font-weight: 600;
+        flex: 1 1 auto;
+    }
 
     // .product-card__title-link
     &__title-link {}
@@ -59,19 +128,53 @@
     &__info {}
 
     // .product-card__rating
-    &__rating {}
+    &__rating {
+        border-bottom: 1px solid rgba(20, 20, 20, 0.5);
+
+        &:not(:last-child) {
+            padding-bottom: rem(20);
+        }
+    }
 
     // .product-card__footer
-    &__footer {}
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .product-card__icons
+    &__icons {
+        display: flex;
+        font-size: rem(24);
+        gap: rem(10);
+        margin-top: rem(25);
+    }
 
     // .product-card__price
-    &__price {}
+    &__price {
+        font-size: rem(20);
+        line-height: math.div(34, 20);
+        font-weight: 600;
+
+        &:not(:last-child) {
+            padding: rem(20) rem(0);
+        }
+    }
 
     // .product-card__compare
-    &__compare {}
+    &__compare {
+        &:hover {
+            color: $mainOrange;
+        }
+
+    }
 
     // .product-card__favorite
-    &__favorite {}
+    &__favorite {
+        &:hover {
+            color: $mainOrange;
+        }
+    }
 
     // .product-card__cart
     &__cart {}
@@ -80,6 +183,15 @@
 }
 
 .info-product-card {
+    display: flex;
+    justify-content: space-between;
+    font-size: rem(16);
+    line-height: math.div(34, 16);
+    color: #ababab;
+
+    &:not(:last-child) {
+        padding-bottom: rem(20);
+    }
 
     // .info-product-card__size
     &__size {}
@@ -89,7 +201,17 @@
 }
 
 
+.button-product-card {
+    width: 100%;
+    color: $mainWhite;
 
-.button {}
 
-.button-product-card {}
+    span {
+        display: flex;
+        justify-content: center;
+        gap: rem(15);
+        font-size: rem(20);
+        align-items: center;
+        flex-direction: row-reverse;
+    }
+}

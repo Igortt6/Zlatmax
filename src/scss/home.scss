@@ -354,6 +354,7 @@
         z-index: -1;
         display: flex;
         transform: translate(5%, 10%);
+        position: relative;
 
         @media (min-width:$mobile) {
             position: absolute;
@@ -362,8 +363,6 @@
             top: 0;
             left: 0;
             justify-content: flex-end;
-
-
         }
     }
 }
@@ -444,5 +443,187 @@
     &__link {
         font-size: rem(18);
         line-height: math.div(34, 18);
+    }
+}
+
+//========================================================================================================================================================
+
+.top-sales {
+    &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 80, 20);
+    }
+
+}
+
+//========================================================================================================================================================
+
+.articles-block {
+
+
+    // .articles-block__container
+    &__container {}
+
+    // .articles-block__title
+    &__title {
+        @include adaptiveValue("margin-bottom", 30, 10);
+        font-weight: 700;
+        font-size: rem(30);
+        line-height: math.div(46, 30);
+        letter-spacing: 0.05em;
+    }
+
+
+
+    // .articles-block__items
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(rem(300), 1fr));
+        gap: rem(30);
+    }
+
+    // .articles-block__item
+    &__item {}
+}
+
+.item-articles {
+    background: #FEFEFE;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+
+    // .item-articles__image-ibg
+    &__image-ibg {
+        padding-bottom: percent(200, 376);
+    }
+
+    // .item-articles__body
+    &__body {
+        flex: 1 1 auto;
+        padding: rem(20) rem(30);
+    }
+
+    // .item-articles__title
+    &__title {
+        font-weight: 600;
+        font-size: rem(20);
+        line-height: math.div(34, 20);
+        flex: 1 1 auto;
+
+
+    }
+
+    // .item-articles__link-title
+    &__link-title {}
+
+    // .item-articles__data
+    &__data {
+        font-size: rem(16);
+        line-height: math.div(34, 16);
+        color: #ABABAB;
+        padding-top: rem(8);
+    }
+}
+
+//========================================================================================================================================================
+
+.info-products {
+
+    // .info-products__container
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(rem(600), 1fr));
+        gap: rem(30);
+    }
+
+    // .info-products__item
+    &__item {
+        padding: rem(30);
+        // background: #FFFFFF;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+        display: flex;
+        position: relative;
+        overflow: hidden;
+
+
+        @media (max-width:$mobile) {
+            flex-direction: column;
+        }
+
+    }
+
+    // .info-products__body
+    &__body {
+        flex: 0 1 50%;
+        z-index: 1;
+    }
+
+    // .info-products__title
+    &__title {
+        font-size: rem(24);
+        line-height: math.div(34, 24);
+        font-weight: 600;
+        display: inline-block;
+
+        &::after {
+            content: '';
+            width: rem(68);
+            height: rem(2);
+            background-color: $mainOrange;
+            border: 1.5px solid #E8AA31;
+            display: block;
+            top: rem(15);
+            transition: width 0.3s ease 0s;
+            margin: rem(15) rem(0) rem(30) rem(0);
+
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    // .info-products__text
+    &__text {
+        font-size: rem(18);
+        line-height: math.div(27, 18);
+    }
+
+    // .info-products__button
+    &__button {
+        color: $mainWhite;
+
+        @include adaptiveValue("margin-top", 45, 20);
+
+        @media (max-width:$mobile) {
+            width: 100%;
+        }
+    }
+
+    // .info-products__image-ibg
+    &__image {
+        width: 100%;
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        transform: translate(2%, 10%);
+
+        img {
+            max-width: 100%;
+
+        }
+
+
+        @media (min-width:$mobile) {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+
+        }
     }
 }

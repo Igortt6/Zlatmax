@@ -230,10 +230,107 @@
 					</div>
 				</div>
 			</section>
-			@@include('html/_product-slider.htm',{
-			"title":"Хіт продаж",
-			"link":"Перейти до каталогу"
-			})
+			<section class="page__top-sales top-sales">
+				@@include('html/_product-slider.htm',{
+				"title":"Хіт продаж",
+				"link":"Перейти до каталогу"
+				})
+			</section>
+			<section class="page__new-products new-products">
+				@@include('html/_new-products.htm',{
+				"title":"Новинки",
+				"link":"Більше новинок"
+				})
+			</section>
+			<section class="page__articles articles-block">
+				<div class="articles-block__container">
+					<h2 class="articles-block__title">Наші статті</h2>
+					<div class="articles-block__items">
+						<article class="articles-block__item item-articles">
+							<a class="item-articles__image-ibg">
+								<img src="@img/articles/1.jpeg" alt="#">
+							</a>
+							<div class="item-articles__body">
+								<h4 class="item-articles__title">
+									<a href="" class="item-articles__link-title">Все про ножі: як правильно вибрати</a>
+								</h4>
+								<div class="item-articles__data">24.07.2019</div>
+							</div>
+						</article>
+						<article class="articles-block__item item-articles">
+							<a class="item-articles__image-ibg">
+								<img src="@img/articles/2.jpeg" alt="#">
+							</a>
+							<div class="item-articles__body">
+								<h4 class="item-articles__title">
+									<a href="" class="item-articles__link-title">Все про ножі: як правильно вибрати</a>
+								</h4>
+								<div class="item-articles__data">24.07.2019</div>
+							</div>
+						</article>
+						<article class="articles-block__item item-articles">
+							<a class="item-articles__image-ibg">
+								<img src="@img/articles/3.jpeg" alt="#">
+							</a>
+							<div class="item-articles__body">
+								<h4 class="item-articles__title">
+									<a href="" class="item-articles__link-title">Все про ножі: як правильно вибрати</a>
+								</h4>
+								<div class="item-articles__data">24.07.2019</div>
+							</div>
+						</article>
+						<article class="articles-block__item item-articles">
+							<a class="item-articles__image-ibg">
+								<img src="@img/articles/4.jpeg" alt="#">
+							</a>
+							<div class="item-articles__body">
+								<h4 class="item-articles__title">
+									<a href="" class="item-articles__link-title">Все про ножі: як правильно вибрати</a>
+								</h4>
+								<div class="item-articles__data">24.07.2019</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+			<section class="page__info-products info-products">
+				<div class="info-products__container">
+					<div class="info-products__item">
+						<div class="info-products__body">
+							<h4 class="info-products__title">Тактичні ліхтарі</h4>
+							<div class="info-products__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+								Sunt
+								dolore in incidunt itaque nam, ratione iure sed maxime possimus ea quasi debitis harum
+								voluptate
+								ipsa minima delectus, saepe quidem fugit!</div>
+							<button class="info-products__button button">Детальніше</button>
+						</div>
+						<div class="info-products__image">
+							<img src="@img/info-products/1.jpg" alt="картинка">
+						</div>
+					</div>
+					<div class="info-products__item">
+						<div class="info-products__body">
+							<h4 class="info-products__title">Налобні ліхтарики</h4>
+							<div class="info-products__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+								Sunt
+								dolore in incidunt itaque nam, ratione iure sed maxime possimus ea quasi debitis harum
+								voluptate
+								ipsa minima delectus, saepe quidem fugit!</div>
+							<button class="info-products__button button">Детальніше</button>
+						</div>
+						<div class="info-products__image">
+							<img src="@img/info-products/2.jpeg" alt="картинка">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page__top-sales top-sales">
+				@@include('html/_product-slider.htm',{
+				"title":"Ліхтарі",
+				"link":"Перейти до каталогу"
+				})
+			</section>
 		</main>
 		@@include('html/_footer.htm',{})
 	</div>

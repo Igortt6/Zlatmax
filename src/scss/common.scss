@@ -1,1 +1,56 @@
 // Заголовки, загальні БЕМ блоки та інше...
+.dotts {
+    display: flex;
+    justify-content: center;
+    gap: rem(15);
+    transform: translate(0px, 15%);
+
+    .swiper-pagination-bullet {
+        position: relative;
+        cursor: pointer;
+        height: rem(40);
+        width: rem(15);
+        transition: all 0.3s ease 0s;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: rem(2);
+            background-color: #898989;
+
+            top: 50%;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $mainOrange;
+            top: 50%;
+            left: 0;
+            transform: translate(0px, -50%);
+            opacity: 0;
+            transition: left 3.6s linear 0s;
+
+        }
+
+        &-active {
+            width: rem(30);
+
+            &::after {
+                content: '';
+                background-color: $mainOrange;
+            }
+
+            &::before {
+                content: '';
+                opacity: 1;
+                left: rem(20);
+            }
+
+        }
+    }
+}
